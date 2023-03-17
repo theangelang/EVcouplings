@@ -582,7 +582,7 @@ class SlurmSubmitter(AClusterSubmitter):
     Implements an LSF submitter
     """
     __name = "slurm"
-    __submit = "sbatch --job-name={name} {dependent} {resources} --wrap 'srun {cmd}'"
+    __submit = "sbatch --gpus=1 --job-name={name} {dependent} {resources} --wrap 'srun {cmd}'"
     __monitor = "squeue -t all -j {job_id}"
     __cancel = "scancel {job_id}"
     __resources = ""
